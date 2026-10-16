@@ -4,7 +4,7 @@ CREATE TABLE IF NOT EXISTS cartes (
     id INT PRIMARY KEY,
     plat VARCHAR(255) NOT NULL,
     categorie VARCHAR(255) NOT NULL,
-    prix BIGINT NOT NULL
+    prix INT NOT NULL
     
 );
 
