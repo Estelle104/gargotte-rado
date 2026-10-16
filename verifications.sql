@@ -56,3 +56,16 @@ LEFT JOIN clients cl ON c.id_client = cl.id;
 -- (3 rows)
 
 -- gargotte_rado=# 
+
+-- ETAPE 5
+select s.id, s.nom, s.prenom , SUM(dc.quantite*p.prix) as chiffre_affaire, COUNT(DISTINCT c.id) as nombre_commandes 
+from serveurs s LEFT JOIN commandes c ON s.id = c.id_serveur
+LEFT JOIN details_commandes dc ON c.id = dc.id_commande
+LEFT JOIN cartes p ON dc.id_plat = p.id
+GROUP BY s.id, s.nom, s.prenom ORDER BY chiffre_affaire DESC;
+
+--  id |  nom  | prenom | chiffre_affaire | nombre_commandes 
+-- ----+-------+--------+-----------------+------------------
+--   2 | Lala  | Rasoa  |           37000 |                1
+--   1 | Njaka | Rakoto |           21500 |                1
+-- (2 rows)

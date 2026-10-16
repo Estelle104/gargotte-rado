@@ -15,4 +15,4 @@ FOREIGN KEY (id_client) REFERENCES clients(id);
  
 
 UPDATE commandes SET id_client = 1 WHERE id = 1;
-UPDATE commandes SET id_client = 2 WHERE id = 2;    
+UPDATE commandes SET id_client = 2 WHERE id = 2;
