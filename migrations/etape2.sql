@@ -3,6 +3,10 @@ CREATE TABLE IF NOT EXISTS categories (
     libele VARCHAR(255) NOT NULL
 );
 
+CREATE SEQUENCE categories_id_seq OWNED BY categories.id;
+ALTER TABLE categories ALTER COLUMN id SET DEFAULT nextval('categories_id_seq');
+SELECT setval('categories_id_seq', COALESCE((SELECT MAX(id) FROM categories), 0) + 1, false);
+
 -- supprimer "categorie" de "cartes"
 ALTER TABLE cartes DROP COLUMN categorie;
 
