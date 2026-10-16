@@ -1,17 +1,12 @@
 CREATE DATABASE gargotte_rado;
 
 CREATE TABLE IF NOT EXISTS cartes (
-    id INT PRIMARY KEY,
+    id INT PRIMARY KEY SERIAL,
     plat VARCHAR(255) NOT NULL,
     categorie VARCHAR(255) NOT NULL,
     prix INT NOT NULL
     
 );
-
-CREATE SEQUENCE cartes_id_seq OWNED BY cartes.id;
-ALTER TABLE cartes ALTER COLUMN id SET DEFAULT nextval('cartes_id_seq');
-SELECT setval('cartes_id_seq', COALESCE((SELECT MAX(id) FROM cartes), 0) + 1, false);
-
 
 INSERT INTO cartes (id, plat, categorie, prix) VALUES
 (1, 'Romazava', 'Plat malagasy', 7000),

@@ -42,3 +42,17 @@ JOIN cartes p ON dc.id_plat = p.id GROUP BY c.id, c.date_commande;
 --   1 | 2026-10-16    |          21500
 -- (2 rows)
 
+
+-- ETAPE 4
+select  c.id, c.date_commande, COALESCE(cl.nom, 'client de passage') as nom, COALESCE(cl.prenom, 'inconnu') as prenom
+from commandes AS c
+LEFT JOIN clients cl ON c.id_client = cl.id;
+
+-- nom  
+-- ----+---------------+-------------------+---------
+--   3 | 2026-10-16    | client de passage | inconnu
+--   1 | 2026-10-16    | Rakoto            | Rak
+--   2 | 2026-10-16    | Rasoa             | Rasoa
+-- (3 rows)
+
+-- gargotte_rado=# 

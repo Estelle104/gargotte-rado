@@ -1,7 +1,6 @@
 CREATE TABLE commandes (
-    id INT PRIMARY KEY,
-    date_commande DATE NOT NULL
-  
+    id INT PRIMARY KEY SERIAL,
+    date_commande DATE NOT NULL,
 );
 
 CREATE TABLE details_commandes (
@@ -36,7 +35,7 @@ INSERT INTO details_commandes (id_commande, id_plat, quantite) VALUES
 
 --- 
 
-INSERT INTO commandes ( date_commande) VALUES
+INSERT INTO commandes (id, date_commande) VALUES
 ( '2026-10-16');
 
 INSERT INTO details_commandes (id_commande, id_plat, quantite) VALUES

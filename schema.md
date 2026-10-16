@@ -13,6 +13,10 @@
 ## Etape 3
 - Je met la quantite dans le details_commandes pour pouvoir designer la quantite de chaque plat commandé
 
+## Etape 4
+- Ma clé etrangere n'est pas "NOT NULL"
+- Pour ne perdre aucune commande il faut le type :
+    - LEFT JOIN
 
 ## cartes (modifié)
 (modifié : enlever categorie varchar et ajouter id_categorie)
@@ -23,10 +27,14 @@ cartes( **id**, plat, #id_categorie, prix)
 
 categorie(**id**, libele)
 
-## commandes (nouveau)
+## commandes (modifié)
 
-commandes(**id**, date_commande )
+commandes(**id**, date_commande, #id_client )
 
 ## details_commandes (nouveau)
 
 details_commandes(**id**, **#id_commande**, **#id_plat**, quantite)
+
+## clients (nouveau)
+
+clients(**id**, nom, prenom)
